@@ -30,6 +30,8 @@ public class MyService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        handler.post(showTime);
+        showNotification();
         Log.d("SERV", "This is onCreate");
     }
 
@@ -37,8 +39,7 @@ public class MyService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d("SERV", "This is onStartCommand");
 
-        handler.post(showTime);
-        showNotification();
+
         return super.onStartCommand(intent, flags, startId);
     }
 
